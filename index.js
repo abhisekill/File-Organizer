@@ -42,8 +42,12 @@ function organizeDirectory(srcDirPath){
         }
         else{
             // files[idx] is a directory
-            const subDirPath = path.join(srcDirPath,files[idx]);
-            organizeDirectory(subDirPath);
+           // if(!fs.existsSync(organizedDirPath))
+                const subDirPath = path.join(srcDirPath,files[idx]);
+                const baseName = path.basename(subDirPath);
+                if(baseName !== 'Organized_folder')
+                    organizeDirectory(subDirPath);
+           // }
         }
     }
 }
